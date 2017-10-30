@@ -1,0 +1,34 @@
+
+Working with Regular expressions
+  #starts_with_a_vowel?
+    returns true for words starting with a vowel
+    returns false for words starting with a consonant
+  #words_starting_with_un_and_ending_with_ing
+    returns an array with the words starting with 'un' and ending with 'ing'
+  #words_five_letters_long
+    returns an array of words that are five letters long
+  #first_word_capitalized_and_ends_with_punctuation?
+    Returns true for text starting with a capital letter and ending with puncutation
+    Returns false for text starting with an uncapitalized letter but ending with puncutation
+    Returns false for text starting with a capital letter but ending without puncutation
+    Returns false for text starting without a capital letter and ending without puncutation
+  #valid_phone_number?
+    returns true for valid phone numbers, regardless of formatting
+    returns false for invalid phone numbers, regardless of formatting (FAILED - 1)
+
+Failures:
+
+  1) Working with Regular expressions #valid_phone_number? returns false for invalid phone numbers, regardless of formatting
+     Failure/Error: expect(valid_numbers.all? { |number| valid_phone_number?(number) }).to be(false)
+       
+       expected false
+            got true
+     # ./spec/regex_lab_spec.rb:71:in `block (3 levels) in <top (required)>'
+
+Finished in 0.03437 seconds (files took 0.16395 seconds to load)
+10 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/regex_lab_spec.rb:69 # Working with Regular expressions #valid_phone_number? returns false for invalid phone numbers, regardless of formatting
+

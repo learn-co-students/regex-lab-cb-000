@@ -12,9 +12,9 @@ def words_five_letters_long(text)
 end
 
 def first_word_capitalized_and_ends_with_punctuation?(text)
-  text.match(/[A-Z]\w+[\?\.\,]/) != nil ? true : false
+  text.match(/[A-Z]\w+[\?\.\,]/) != nil
 end
 
 def valid_phone_number?(phone)
-  phone.match(/^((\+\d{1,2}|1)[\s.-]?)?\(?[2-9](?!11)\d{2}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/) != nil ? true : false
+  phone.match(/^((\+\d{1,2}|1)[\s.-]?)?\(?[2-9](?!11)\d{2}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/) != nil
 end

@@ -1,6 +1,6 @@
 
-
-words_string = "unassuming ambiguous understanding pomp circumstance uninteresting uncompromising grouchy corollary"
+require 'pry'
+correct_punctuation = "I stepped on a Corn Flake, now I'm a cereal killer."
 
 def starts_with_a_vowel?(word)
   boolean = false
@@ -23,9 +23,20 @@ def words_five_letters_long(text)
 end
 
 def first_word_capitalized_and_ends_with_punctuation?(text)
-  text.scan(/\b^[A-Z]\w[.,\/#!$%\^&\*;:{}=\-_`~()]/)
+  if text.scan(/^[A-Z].*[.,\/#!$%\^&\*;:{}=\-_`~()]$/) != []
+    return true
+  else
+    return false
+  end
+  # binding.pry
 end
 
-def valid_phone_number?(phone)
+first_word_capitalized_and_ends_with_punctuation?(correct_punctuation)
 
+def valid_phone_number?(phone)
+  if phone.scan(/\d.*\d.*\d.*\d.*\d.*\d.*\d.*\d.*\d.*\d.*/) != []
+    return true
+  else
+    return false
+  end
 end

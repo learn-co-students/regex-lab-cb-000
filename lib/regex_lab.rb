@@ -1,12 +1,15 @@
 def starts_with_a_vowel?(word)
   #word.scan(/^[aeiouAEIOU]/)
 
-  if word.match(/^[aeiouAEIOU]/)
-  #if word.scan(/\A[aeiouAEIOU]/)
+  #Either if statement works
+  #if word.match(/^[aeiouAEIOU]/)
+  if word.match(/\A[aeiouAEIOU]/)
     return true
   end
-  #if word.scan(/\A[^aeiouAEIOU]/)
-  if word.match(/^[^aeiouAEIOU]/)#==nil
+
+  #Either if statement works
+  if word.match(/\A[^aeiouAEIOU]/)
+  #if word.match(/^[^aeiouAEIOU]/)
     return false
   end
 
@@ -15,6 +18,9 @@ end
 
 def words_starting_with_un_and_ending_with_ing(text)
   text.scan(/un\w+\ing/)
+
+  #not sure why following doesn't work, rubular says it does
+  #text.scan(/^un\w+\ing$/)
 end
 
 def words_five_letters_long(text)
@@ -22,6 +28,7 @@ def words_five_letters_long(text)
 end
 
 def first_word_capitalized_and_ends_with_punctuation?(text)
+  #Basically if text.scan returns an empty array
   if text.scan(/^[A-Z].*[\.]$/)==[]
     false
   else
@@ -40,7 +47,8 @@ def first_word_capitalized_and_ends_with_punctuation?(text)
 end
 
 def valid_phone_number?(phone)
-  phone.match(/.?(\d{3}).?(\d{3}).?(\d{4})/)
+  #phone.match(/.?(\d{3}).?(\d{3}).?(\d{4})/)
+  phone.match(/.?\d{3}.?\d{3}.?\d{4}/)
   #if phone.scan(/\d{10}/) #!= nil
   #if phone.scan(/.?(\d{3}).?(\d{3}).?(\d{4})/)
     #true

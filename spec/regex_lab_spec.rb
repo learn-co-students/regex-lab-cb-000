@@ -6,7 +6,7 @@ describe "Working with Regular expressions" do
       match = %w{ afoot Excellent incredible Absolute unreal Inconceivable octopus }
 
       match.each do |word|
-        expect(starts_with_a_vowel?(word)).to be(true)
+        expect(starts_with_a_vowel?(word)).to be_truthy
       end
     end
 
@@ -15,7 +15,7 @@ describe "Working with Regular expressions" do
      makeshift Palazzi sixfold Truth }
 
       do_not_match.each do |word|
-        expect(starts_with_a_vowel?(word)).to be(false)
+        expect(starts_with_a_vowel?(word)).to be_falsey
       end
     end
   end
@@ -42,33 +42,33 @@ describe "Working with Regular expressions" do
   describe "#first_word_capitalized_and_ends_with_punctuation?" do
     it "Returns true for text starting with a capital letter and ending with puncutation" do
       correct_punctuation = "I stepped on a Corn Flake, now I'm a cereal killer."
-      expect(first_word_capitalized_and_ends_with_punctuation?(correct_punctuation)).to eq(true)
+      expect(first_word_capitalized_and_ends_with_punctuation?(correct_punctuation)).to be_truthy
     end
     it "Returns false for text starting with an uncapitalized letter but ending with puncutation" do
       incorrect_punctuation = "i wondered why the baseball was getting bigger. Then it hit me."
-      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to eq(false)
+      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to be_falsey
     end
 
     it "Returns false for text starting with a capital letter but ending without puncutation" do
       incorrect_punctuation = "Did you hear about the guy whose whole left side was cut off? He's all right now"
-      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to eq(false)
+      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to be_falsey
     end
     it "Returns false for text starting without a capital letter and ending without puncutation" do
       incorrect_punctuation = "when fish are in schools, they sometimes take debate
 "
-      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to eq(false)
+      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to be_falsey
     end
   end
 
   describe "#valid_phone_number?" do
     it "returns true for valid phone numbers, regardless of formatting" do
       valid_numbers = ["2438894546", "(718)891-1313", "234 435 9978", "(800)4261134"]
-      expect(valid_numbers.all? { |number| valid_phone_number?(number) }).to be(true)
+      expect(valid_numbers.all? { |number| valid_phone_number?(number) }).to be_truthy
     end
 
     it "returns false for invalid phone numbers, regardless of formatting" do
       valid_numbers = ["28894546", "(718)891-13135", "234 43 9978", "(800)IloveNY"]
-      expect(valid_numbers.all? { |number| valid_phone_number?(number) }).to be(false)
+      expect(valid_numbers.all? { |number| valid_phone_number?(number) }).to be_falsey
     end
   end
 

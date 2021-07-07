@@ -23,7 +23,7 @@ describe "Working with Regular expressions" do
   describe "#words_starting_with_un_and_ending_with_ing" do
     it "returns an array with the words starting with 'un' and ending with 'ing'" do
       words_string = "unassuming ambiguous understanding pomp circumstance uninteresting uncompromising grouchy corollary"
-      
+
       expect(words_starting_with_un_and_ending_with_ing(words_string).count).to eq(4)
       expect(words_starting_with_un_and_ending_with_ing(words_string)).to include("understanding")
       expect(words_starting_with_un_and_ending_with_ing(words_string)).not_to include("pomp")
@@ -45,18 +45,18 @@ describe "Working with Regular expressions" do
       expect(first_word_capitalized_and_ends_with_punctuation?(correct_punctuation)).to eq(true)
     end
     it "Returns false for text starting with an uncapitalized letter but ending with puncutation" do
-      incorrect_punctuation = "i wondered why the baseball was getting bigger. Then it hit me."
-      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to eq(false)
+      incorrect_punctuation1 = "i wondered why the baseball was getting bigger. Then it hit me."
+      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation1)).to eq(false)
     end
 
     it "Returns false for text starting with a capital letter but ending without puncutation" do
-      incorrect_punctuation = "Did you hear about the guy whose whole left side was cut off? He's all right now"
-      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to eq(false)
+      incorrect_punctuation2 = "Did you hear about the guy whose whole left side was cut off? He's all right now"
+      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation2)).to eq(false)
     end
     it "Returns false for text starting without a capital letter and ending without puncutation" do
-      incorrect_punctuation = "when fish are in schools, they sometimes take debate
+      incorrect_punctuation3 = "when fish are in schools, they sometimes take debate
 "
-      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation)).to eq(false)
+      expect(first_word_capitalized_and_ends_with_punctuation?(incorrect_punctuation3)).to eq(false)
     end
   end
 
@@ -67,9 +67,16 @@ describe "Working with Regular expressions" do
     end
 
     it "returns false for invalid phone numbers, regardless of formatting" do
-      valid_numbers = ["28894546", "(718)891-13135", "234 43 9978", "(800)IloveNY"]
-      expect(valid_numbers.all? { |number| valid_phone_number?(number) }).to be(false)
+      number = "28894546"
+      expect(valid_phone_number?(number)).to be(false)
+      number1 = "(718)891-13135"
+      expect(valid_phone_number?(number1)).to be(false)
+      number2 = "234 43 9978"
+      expect(valid_phone_number?(number2)).to be(false)
+      number3 = "(800)IloveNY"
+      expect(valid_phone_number?(number3)).to be(false)
     end
+
   end
 
 
